@@ -11,7 +11,7 @@ function sleep(milliseconds) {
 }
 
 // main game
-console.log( "Welcome to Batman: Arkham Asylum!" );
+
 
 // sleep(1000)
 //
@@ -33,13 +33,13 @@ console.log( "Welcome to Batman: Arkham Asylum!" );
 //     console.log( "A prisoner punches you in the face." );
 //     console.log( "Prisoner: \"Quit messin' around.\"" );
 // }
-
-sliderGame()
+wordGame()
+// sliderGame()
 // slider game
 
 function sliderGame () {
   let letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-  let answer = Math.floor(Math.random() * 31)
+  let answer = Math.floor(Math.random() * 61)
   // let leftKey = &#97;
   console.log(`Quick, select ${answer}!`);
 
@@ -63,3 +63,14 @@ function sliderGame () {
     console.log(`Off by ${value-answer}! Try again!`);
   }
 }
+
+function wordGame () {
+  word = ['sweaterdress', 'cakewalking', 'pseudoscience', 'whatthefuck', 'jellybelly', 'yumminess',
+  'abolitionism', 'wyncode', 'case-sensitive', 'hypothesize', 'JavaScript', 'Delicious', 'Googling' ]
+
+  console.log('Quick type the enter the following string! (Case-sensitive!)')
+
+  selection = Math.floor(Math.random() * word.length)
+  console.log(word[selection])
+
+} 

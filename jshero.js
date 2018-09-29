@@ -26,27 +26,29 @@ function checkAnswer(ans, seconds) {
 
 
 
-// console.log('Welcome to JS Hero!');
+console.log('Welcome to JS Hero!');
 // sleep(2000)
 
-// console.log('Just follow the directions and have fun!');
+console.log('Just follow the directions and have fun!');
 
 // sleep(10000)
 
+async function mainGame(){
 
-// wordGame()
-// startTimer(10);
-// sleep(200)
-// sliderGame()
-console.log('before');
-let userAnswer
-checkAnswer(userAnswer, 10)
-sleep(3000)
-console.log('after');
-mathGame()
-qpGame()
+  await wordGame()
+  // startTimer(10);
+  // sleep(200)
+  sliderGame()
+  // console.log('before');
+  // let userAnswer
+  // checkAnswer(userAnswer, 10)
+  // sleep(3000)
+  // console.log('after');
+  mathGame()
+  qpGame()
+}
 
-
+mainGame()
 
 function sliderGame () {
 

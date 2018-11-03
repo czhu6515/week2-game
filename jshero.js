@@ -1,6 +1,31 @@
 let readlineSync = require('readline-sync');
 
-// sleep function
+// Game
+console.log('Welcome to JS Hero!');
+sleep(2000)
+
+console.log('Just follow the directions and have fun!');
+
+sleep(10000)
+
+mainGame()
+
+
+// Main function
+function mainGame(){
+  wordGame()
+  sliderGame()
+  mathGame()
+  qpGame()
+
+  console.log("Play again? (y/n)");
+  let play_again = readlineSync.question("")
+  if (play_again.trim().toLowerCase() == 'y'){
+    mainGame()
+  }
+}
+
+// Sleep timer
 function sleep(milliseconds) {
   var start = new Date().getTime();
   for (var i = 0; i < 1e7; i++) {
@@ -10,53 +35,14 @@ function sleep(milliseconds) {
   }
 }
 
-// countdown timer
-function checkAnswer(ans, seconds) {
-  let checker = () => {
-    console.log(seconds);
-    seconds--;
-    if (seconds <= 0 || ans != undefined) {
-        clearInterval(check);
-    }
-  }
-  checker()
-  let check = setInterval(checker, 1000);
-}
-
-
-
-
-console.log('Welcome to JS Hero!');
-// sleep(2000)
-
-console.log('Just follow the directions and have fun!');
-
-// sleep(10000)
-
-async function mainGame(){
-
-  await wordGame()
-  // startTimer(10);
-  // sleep(200)
-  sliderGame()
-  // console.log('before');
-  // let userAnswer
-  // checkAnswer(userAnswer, 10)
-  // sleep(3000)
-  // console.log('after');
-  mathGame()
-  qpGame()
-}
-
-mainGame()
-
+// Slider minigame
 function sliderGame () {
 
-  let letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
   let answer = Math.floor(Math.random() * 61)
   // let leftKey = &#97;
   console.log();
   console.log();
+  console.log('-----------------------------------------------------------------------');
   console.log(`Move the slider, select ${answer}!                     [Z] <- -> [X]  `);
   console.log(`                                               SELECT: [SPACE]`);
 
@@ -84,16 +70,16 @@ function sliderGame () {
     console.log();
     console.log(`Off by ${value-answer}! You suck!`);
   }
-  sleep(5000)
+  sleep(10000)
 }
 
+// Password minigame
 function wordGame () {
   word = ['sweaterdress', 'cakewalking', 'pseudoscience', 'whatthefuck', 'jellybelly', 'yumminess',
   'abolitionism', 'Wyncode', 'tomato-juice', 'hypothesize', 'JavaScript', 'Delicious', 'Googling' ]
   console.log();
   console.log();
-  // console.log("THE PASSWORD");
-  console.log();
+  console.log('-----------------------------------------------------------------------');
   console.log('Enter the following secret password! (Case-sensitive)')
   console.log();
 
@@ -109,17 +95,18 @@ function wordGame () {
     console.log();
     console.log("You suck!");
   }
-  sleep(5000)
+  sleep(10000)
 }
 
+// Addition minigame
 function mathGame() {
-
   console.log();
   console.log();
+  console.log('-----------------------------------------------------------------------');
   console.log('Answer this math question!')
   console.log();
-  let a = Math.floor(Math.random() * 100)
-  let b = Math.floor(Math.random() * 100)
+  let a = Math.floor(Math.random() * 13 + Math.random() * 10)
+  let b = Math.floor(Math.random() * 13 + Math.random() * 10)
 
   console.log(`What is ${a} + ${b}?`);
 
@@ -135,12 +122,14 @@ function mathGame() {
     console.log();
     console.log("You suck!");
   }
-  sleep(5000)
+  sleep(10000)
 }
 
+// qp minigame
 function qpGame () {
   console.log();
   console.log();
+  console.log('-----------------------------------------------------------------------');
   console.log("Enter this string of q's and p's")
   console.log();
   qpArr = []
@@ -157,6 +146,8 @@ function qpGame () {
 
   let userAnswer = readlineSync.question(">>  ")
 
+  console.log();
+  console.log(userAnswer);
   // console.log(userAnswer, qpStr);
   if (userAnswer == qpStr){
     console.log();
@@ -165,5 +156,5 @@ function qpGame () {
     console.log();
     console.log("You suck!");
   }
-  sleep(5000)
+  sleep(10000)
 }
